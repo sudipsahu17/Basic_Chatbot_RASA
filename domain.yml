@@ -1,0 +1,121 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- restaurant_search
+- deny
+- affirm
+- send_mail
+- greet
+- goodbye
+entities:
+- cuisine
+- email
+- location
+- price
+slots:
+  cuisine:
+    type: text
+    influence_conversation: true
+  location:
+    type: text
+    influence_conversation: true
+  check_resp:
+    type: bool
+    influence_conversation: true
+  email:
+    type: text
+    influence_conversation: true
+  price:
+    type: categorical
+    influence_conversation: true
+    values:
+    - lesser than 300
+    - between 300 to 700
+    - more than 700
+responses:
+  utter_ask_cuisine:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Italian
+      title: Italian
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    - payload: American
+      title: American
+    - payload: Mexican
+      title: Mexican
+    - payload: Mughlai
+      title: Mughlai/ Biryani
+    - payload: Cafe
+      title: Cafes/ Bakery
+    - payload: Fast Food
+      title: Fast Food
+    - payload: Continental
+      title: Continental
+    - payload: Dessert
+      title: Dessert
+    - payload: All
+      title: Any
+    text: What kind of cuisine would you like?
+  utter_ask_howcanhelp:
+  - text: How can I help you?
+  utter_ask_location:
+  - text: In what location?
+  - text: Could you please let us now the location?
+  - text: May I know, in which location, do you need our service?
+  utter_default:
+  - text: I cannot understand. Sorry !! :(
+  utter_goodbye:
+  - text: Good bye :)
+  - text: Bye-bye
+  - text: Okay, Thank you !! Please come again !!
+  utter_greet:
+  - text: Hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
+  utter_we_dont_operate:
+  - text: We don't operate in that area yet! Sorry !! :(
+  - text: Service not available for the location. Could you please try with some other location?
+  utter_to_mail:
+  - text: Do you want me to send the restaurant details to your mail id?
+  utter_ask_mail_id:
+  - text: Please specify your email address, to get the resturant details.
+  - text: Okay, Type your mail id please. We will share the best restaurants' details with you.
+  utter_mail_sent:
+  - text: Restaurant details sent to your mail id successfully. Thamk you !!
+  - text: Mail sent suceessfully !! Have a good one !!
+  utter_no_restaurant:
+  - text: No restaurant found !! Please try again with different price range or cuisine !!
+  utter_ask_price:
+  - buttons:
+    - payload: lesser than 300
+      title: Lesser than Rs. 300
+    - payload: between 300 to 700
+      title: Rs. 300 to 700
+    - payload: more than 700
+      title: More than Rs. 700
+    text: What price range are you looking at?
+  utter_mail_failed:
+  - text: Failed to send the mail !! Please try again :( !!
+actions:
+- action_check_location
+- action_search_restaurants
+- action_send_mail
+- utter_ask_cuisine
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_mail_id
+- utter_ask_price
+- utter_default
+- utter_goodbye
+- utter_greet
+- utter_mail_failed
+- utter_mail_sent
+- utter_no_restaurant
+- utter_to_mail
+- utter_we_dont_operate
