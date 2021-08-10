@@ -1,10 +1,4 @@
 ## ## Rasa Charbot Assignment - Restaurant Search Chatbot
-
-## Group Facilotator : Sudip Kumar Sahu
-## Email : sudipsahu17@gmail.com
-
-## Group Member: Satish Bhoyar
-## Email : getsatonline@gmail.com
 #------------------------------------------------------------------------
 
 ### Problem Statement
